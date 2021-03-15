@@ -1,0 +1,13 @@
+# docker-compose.yml
+
+version: "3"
+services:
+  db:
+    image: postgres:alpine
+    container_name: pitzi_dev_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pitzi
+      POSTGRES_USER: pitzi
+    ports:
+      - "5432:5432"

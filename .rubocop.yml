@@ -1,0 +1,67 @@
+require: rubocop-rails
+
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 3.0.0
+  # Include common Ruby source files.
+  Include:
+    - '**/*.rb'
+    - '**/*.gemspec'
+    - '**/*.podspec'
+    - '**/*.jbuilder'
+    - '**/*.rake'
+    - '**/*.opal'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Capfile'
+    - '**/Guardfile'
+    - '**/Podfile'
+    - '**/Thorfile'
+    - '**/Vagrantfile'
+    - '**/Berksfile'
+    - '**/Cheffile'
+    - '**/Vagabondfile'
+    - '**/Fastfile'
+    - '**/*Fastfile'
+  Exclude:
+    - 'spec/responses/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/environments/*'
+    - 'config/routes.rb'
+    
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 140
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+
+Lint/MissingSuper:
+  Exclude:
+    - 'app/models/**/*'    
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'shared_examples', 'let']
+  Exclude:
+    - spec/factories/**/**/*
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/ActiveRecordOverride:
+  Enabled: false
